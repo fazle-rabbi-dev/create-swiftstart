@@ -29,12 +29,14 @@ const startApp = () => {
     if (!error) {
       console.log(stdout);
       console.clear();
-      if (argv._.length === 1 && "t" in argv) {
+      // if (argv._.length === 1 && "t" in argv) {
+      if (argv._.length === 2) {
         appName = argv._[0];
-        templateName = argv.t;
+        templateName = argv._[1];
         main();
       } else {
         console.clear();
+        console.log(chalk.red("-> Invalid argument.")+chalk.reset())
         askAppName();
       }
     }
@@ -93,7 +95,7 @@ const askShouldUseAppDir = () => {
 
 /* Main Function To Generate Boilerplate Project */
 const main = () => {
-  if (shouldUseAppDir === undefined) {
+  if (shouldUseAppDir === undefined && ["next","n"].includes(templateName)) {
     return askShouldUseAppDir();
   }
   
