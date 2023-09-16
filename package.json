@@ -1,0 +1,23 @@
+{
+  "name": "create-swiftstart",
+  "version": "1.0.1",
+  "description": "Automate the setup of Vite-React & Next.js projects with a pre-designed boilerplate structure using create-swiftstart. This tool saves your time and provides a clean starting point for your React or Next.js applications.",
+  "bin": {
+    "create-swiftstart": "main.js"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["create-swiftstart","swiftstart","boilerplate","react-boilerplate","next-boilerplate","react","next","next.js","react.js","vite","vitejs","create-vite","create-next-app"],
+  "author": "Fazle Rabbi",
+  "license": "MIT",
+  "homepage": "https://github.com/fh-rabbi/create-swiftstart",
+  "dependencies": {
+    "chalk": "^4.0.0",
+    "fs-extra": "^11.1.1",
+    "minimist": "^1.2.8",
+    "npmlog": "^7.0.1",
+    "react-toastify": "^9.1.3"
+  }
+}

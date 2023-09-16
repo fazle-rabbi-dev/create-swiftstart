@@ -1,0 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.app{
+  @apply px-5 md:px-20 pt-2
+}
