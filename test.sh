@@ -1,7 +1,7 @@
 #!/usr/bin/bash
 
 # This script created to switch next.js version to 13.1.0
-# Cause: Next.js 13.1.0 is best for work with next.js in Android Phone with 2Gb Ram! 😳
+# Cause: Nwxt.js 13.1.0 is best for work with next.js in Android Phone with 2Gb Ram! 😳
 
 read -p "[*] Type App Name:" appname
 
@@ -24,4 +24,4 @@ echo "{
     \"react-top-loading-bar\": \"^2.3.1\",
     \"tailwindcss\": \"3.3.3\"
   }
-}" > package.json && npm i
+}" > abc.json
