@@ -1,6 +1,15 @@
-import React from 'react'
+import { useEffect } from 'react'
 
-function HomePage() {
+function HomePage({setProgress}) {
+    useEffect(() => {
+      setTimeout(function() {
+        setProgress(40)
+          setTimeout(function() {
+            setProgress(100)
+          }, 700);
+      }, 500);
+    },[]);
+    
     return (
       <div className="">
         <h2 className="text-4xl font-clash-display-medium">
