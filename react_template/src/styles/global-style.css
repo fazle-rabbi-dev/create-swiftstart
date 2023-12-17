@@ -1,12 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+@import "./fonts.css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-body{
-  background: #292947;
-  color: white;
+
+@layer base {
+  body{
+    @apply bg-dark-4 font-inter;
+  }
+  
+  main{
+  }
+  
+  h1{
+    @apply text-3xl;
+    font-weight: 700;
+  }
 }
 
-.app{
-  @apply px-5 md:px-20 pt-2
+
+/*
+==========================================
+Reusable Classes
+==========================================
+*/
+@layer components {
+  .btn-primary{
+    @apply p-4 py-1 rounded bg-primary-500 text-white;
+  }
+}
+
+
+/*
+==========================================
+Utility Classes
+==========================================
+*/
+@layer utilities {
+  .flex-center{
+    @apply flex justify-center items-center;
+  }
 }

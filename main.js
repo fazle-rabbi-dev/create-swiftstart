@@ -2,7 +2,7 @@
 
 /**
  * create-swiftstart
- * Author: Fazle Rabbi (GitHub: fh-rabbi)
+ * Author: Fazle Rabbi (GitHub: fazle-rabbi-dev)
  * Description: This module generates a pre-designed seo-friendly Vite React & Next.js boilerplate project with a custom folder and file structure.
  * Version: 1.0.0
  * License: MIT
@@ -15,7 +15,6 @@ const argv = require("minimist")(process.argv.slice(2));
 const readline = require("readline");
 const chalk = require("chalk");
 const { exec } = require("child_process");
-const npmlog = require("npmlog");
 
 /* Initialized Empty Variable To Store User Input */
 let appName;
@@ -29,14 +28,15 @@ const startApp = () => {
     if (!error) {
       console.log(stdout);
       console.clear();
-      // if (argv._.length === 1 && "t" in argv) {
-      if (argv._.length === 2) {
+      
+      if (argv._.length === 1 && argv.t) {
         appName = argv._[0];
-        templateName = argv._[1];
-        main();
+        templateName = argv.t;
+        
+        main()
       } else {
         console.clear();
-        console.log(chalk.red("-> Invalid argument.")+chalk.reset())
+        // console.log(chalk.red("-> Invalid argument.")+chalk.reset())
         askAppName();
       }
     }
@@ -52,7 +52,8 @@ const rl = readline.createInterface({
 /* Utility Functions */
 const displayError = (msg) => {
   console.log(chalk.red(`🔴 Oops! ${msg}`));
-  return process.exit(0);
+  // return process.exit(0);
+  startApp()
 };
 
 const question = (text) => {
@@ -136,6 +137,13 @@ const main = () => {
     content.name = appName;
     content = JSON.stringify(content);
     fs.writeFileSync(`${targetDir}/package.json`, content);
+    
+    // Change app name in package-lock.json
+    let pkgLockFile = fs.readFileSync(`${targetDir}/package-lock.json`, "utf-8");
+    pkgLockFile = JSON.parse(pkgLockFile);
+    pkgLockFile.name = appName;
+    pkgLockFile = JSON.stringify(pkgLockFile);
+    fs.writeFileSync(`${targetDir}/package-lock.json`, pkgLockFile);
     
     console.log(`${chalk.green("✔ ")}Project ${appName} created successful`);
     console.log(`${chalk.reset()}\nDone. Now run:`);
