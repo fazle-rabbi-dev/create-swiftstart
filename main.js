@@ -135,14 +135,14 @@ const main = () => {
     let content = fs.readFileSync(`${targetDir}/package.json`, "utf-8");
     content = JSON.parse(content);
     content.name = appName;
-    content = JSON.stringify(content);
+    content = JSON.stringify(content, null, 2);
     fs.writeFileSync(`${targetDir}/package.json`, content);
     
     // Change app name in package-lock.json
     let pkgLockFile = fs.readFileSync(`${targetDir}/package-lock.json`, "utf-8");
     pkgLockFile = JSON.parse(pkgLockFile);
     pkgLockFile.name = appName;
-    pkgLockFile = JSON.stringify(pkgLockFile);
+    pkgLockFile = JSON.stringify(pkgLockFile, null, 2);
     fs.writeFileSync(`${targetDir}/package-lock.json`, pkgLockFile);
     
     console.log(`${chalk.green("✔ ")}Project ${appName} created successful`);
@@ -152,6 +152,7 @@ const main = () => {
   npm install
   npm run dev
     `);
+  process.exit(0);
   } catch (e) {
     displayError(e.message);
   }
