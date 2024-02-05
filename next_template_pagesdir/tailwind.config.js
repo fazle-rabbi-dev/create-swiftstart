@@ -1,23 +1,37 @@
 /** @type {import('tailwindcss').Config} */
-module.exports = {
+export default {
+  darkMode: ["class"],
   content: [
-    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+    "./src/**/*.{js,ts,jsx,tsx}",
+    "./pages/**/*.{js,jsx,ts,tsx}",
+    "./components/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-        'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-      },
       fontFamily: {
-        'clash-display-medium': ['ClashDisplay-Medium', 'sans'],
-        'supreme-regular': ['Supreme-Regular', 'sans'],
-        'satoshi-medium': ['Satoshi-Medium', 'sans'],
-      }
-    },
-  },
-  plugins: [],
-}
+          "satoshi-medium": ["Satoshi-Medium", "sans"],
+          inter: ['Inter', 'sans-serif'],
+      },
+      colors: {
+        purple: {
+          50: "#e1c7fc",
+          60: "#b492fb",
+          70: "#a841ff",
+        },
+        orange: {
+          50: "#fce0c7",
+          60: "#ffc189",
+          70: "#ff983b",
+        },
+        gray: {
+          50: "#dedede",
+          60: "#afafaf",
+          70: "#8a8a8a",
+        }
+      },
+      backgroundImage: {
+        // banner: "url('')",
+      },
+    }
+  }
+};
